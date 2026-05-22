@@ -3,160 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows 13 Pro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>CRITICAL SYSTEM OBLITERATION</title>
     <style>
-        body {
-            background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564') no-repeat center center fixed;
-            background-size: cover;
-            overflow: hidden;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+        /* Reset and full-screen setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.2); }
-        .window { position: absolute; min-width: 300px; display: none; flex-direction: column; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border-radius: 12px; overflow: hidden; resize: both; }
-        .window.active { display: flex; z-index: 50; }
-        .start-menu { transform: translateY(120%); transition: transform 0.4s cubic-bezier(0.17, 0.84, 0.44, 1); }
-        .start-menu.open { transform: translateY(0); }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #aa0000; /* Dark, aggressive Crimson Red */
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Content container */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Custom requested face expression */
+        .smiley {
+            font-size: 110px;
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* The heavy roast text */
+        .main-message {
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 1.4;
+            max-width: 950px;
+        }
+
+        .highlight-yellow {
+            color: #ffeb3b; /* Aggressive warning yellow */
+            font-weight: 700;
+        }
+
+        /* Progress indicator */
+        .percentage {
+            font-size: 26px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Footer Area (Accurate QR + Tech Roast) */
+        .footer-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-top: 15px;
+        }
+
+        /* High-accuracy crisp SVG QR Code */
+        .qr-code-svg {
+            width: 140px;
+            height: 140px;
+            background-color: #ffffff;
+            padding: 8px;
+            flex-shrink: 0;
+        }
+
+        /* Footer tech text links */
+        .details-text {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .stop-code {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
-<body class="h-screen w-screen text-white select-none">
+<body>
 
-    <!-- DESKTOP ICONS -->
-    <div class="p-6 grid grid-cols-1 gap-6 w-24 text-center">
-        <div onclick="openApp('calc')" class="cursor-pointer hover:bg-white/10 p-2 rounded-lg transition">
-            <i data-lucide="calculator" class="w-10 h-10 mx-auto text-orange-400"></i>
-            <span class="text-xs mt-1 block">Calculator</span>
-        </div>
-        <div onclick="openApp('terminal')" class="cursor-pointer hover:bg-white/10 p-2 rounded-lg transition">
-            <i data-lucide="terminal" class="w-10 h-10 mx-auto text-green-400"></i>
-            <span class="text-xs mt-1 block">Terminal</span>
-        </div>
-        <div onclick="openApp('notepad')" class="cursor-pointer hover:bg-white/10 p-2 rounded-lg transition">
-            <i data-lucide="file-text" class="w-10 h-10 mx-auto text-blue-300"></i>
-            <span class="text-xs mt-1 block">Notepad</span>
-        </div>
-    </div>
+    <div class="container">
+        <div class="smiley">:>DXB</div>
 
-    <!-- WINDOW: CALCULATOR -->
-    <div id="win-calc" class="window glass w-72 h-96 top-20 left-20">
-        <div class="p-3 bg-white/10 flex justify-between items-center cursor-move">
-            <span class="text-xs font-bold">Calculator</span>
-            <button onclick="closeApp('calc')" class="hover:bg-red-500 px-2 rounded">✕</button>
+        <div class="main-message">
+            Your pathetic game cooked your components, and your pathetic antivirus wanted to protect you, by deleting System32.<br>
+            <span class="highlight-yellow">SHUTDOWN YOUR COMPUTER NOW AND NEVER ATTEMPT TO TURN IT ON AGAIN. YOU COOKED YOUR GPU AND CPU AND WINDOWS WANTED TO LOG YOU OUT FOR GOOD.</span>
         </div>
-        <div class="p-4 flex-1 flex flex-col gap-2">
-            <input id="calc-display" readonly class="w-full bg-black/20 p-2 text-right text-2xl rounded outline-none" value="0">
-            <div class="grid grid-cols-4 gap-1 flex-1">
-                <!-- Simple functional buttons -->
-                <button onclick="calcInput('7')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">7</button>
-                <button onclick="calcInput('8')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">8</button>
-                <button onclick="calcInput('9')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">9</button>
-                <button onclick="calcInput('/')" class="bg-blue-500/50 rounded p-2">/</button>
-                <button onclick="calcInput('4')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">4</button>
-                <button onclick="calcInput('5')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">5</button>
-                <button onclick="calcInput('6')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">6</button>
-                <button onclick="calcInput('*')" class="bg-blue-500/50 rounded p-2">*</button>
-                <button onclick="calcInput('1')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">1</button>
-                <button onclick="calcInput('2')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">2</button>
-                <button onclick="calcInput('3')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">3</button>
-                <button onclick="calcInput('-')" class="bg-blue-500/50 rounded p-2">-</button>
-                <button onclick="calcClear()" class="bg-red-500/50 rounded p-2">C</button>
-                <button onclick="calcInput('0')" class="bg-white/5 hover:bg-white/20 rounded p-2 text-lg">0</button>
-                <button onclick="calcResult()" class="bg-green-500/50 rounded p-2">=</button>
-                <button onclick="calcInput('+')" class="bg-blue-500/50 rounded p-2">+</button>
+
+        <div class="percentage">0% complete (and it's staying that way)</div>
+
+        <div class="footer-section">
+            
+            <svg class="qr-code-svg" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h7v7H0V0zm1 1v5h5V1H1zm1 1h3v3H2V2zm20-2h7v7h-7V0zm1 1v5h5V1h-5zm1 1h3v3h-3V2zM0 22h7v7H0v-7zm1 1v5h5v-5H1zm1 1h3v3H2v-3zm21-13h1v1h-1v-1zm-3 2h1v1h-1v-1zm5-2h1v3h-1v-3zm-4 4h3v1h-3v-1zm5 0h1v2h-1v-2zm-4 3h1v1h-1v-1zm2 0h2v1h-2v-1zm-4 2h1v1h-1v-1zm2 0h1v2h-1v-2zm-3 2h3v1h-3v-1zm4 0h1v1h-1v-1zm1-3h1v1h-1v-1zm1 2h1v2h-1v-2zm-12 1h1v1h-1v-1zm1 2h1v2h-1v-2zm-3-4h1v1h-1v-1zm3 1h1v2h-1v-2zm-2 2h1v1h-1v-1zm-3 1h2v1h-2v-1zm9-9h1v1h-1v-1zm1-2h1v2h-1v-2zm-4 3h3v1h-3v-1zm4 0h1v1h-1v-1zm-5-3h1v1h-1v-1zm2 0h1v1h-1v-1zm1 7h1v1h-1v-1zm1-3h1v2h-1v-2zm2 1h1v1h-1v-1zm-7-4h1v2h-1v-2zm3-2h2v1h-2v-1z" fill="#aa0000"/>
+            </svg>
+
+            <div class="details-text">
+                For NO assistance and immediate hardware disposal instructions, do NOT visit any helpful links.<br><br>
+                If you try to call a support person, they will laugh. Good luck explaining this to anyone.<br>
+                Stop code: <span class="stop-code">COMPLETE_SYSTEM_OBLITERATION_FAILURE</span><br>
+                Error: <span class="stop-code">USER_IS_A_MACHINE_DESTROYER</span><br>
+
+                  What failed: <span class="stop-code">C:/Windows/System32(missing)</span>
+
             </div>
         </div>
     </div>
 
-    <!-- WINDOW: TERMINAL -->
-    <div id="win-terminal" class="window glass w-[500px] h-[300px] top-40 left-60">
-        <div class="p-3 bg-white/10 flex justify-between items-center">
-            <span class="text-xs font-bold font-mono">Windows PowerShell</span>
-            <button onclick="closeApp('terminal')" class="hover:bg-red-500 px-2 rounded">✕</button>
-        </div>
-        <div id="term-body" class="p-4 flex-1 font-mono text-sm overflow-y-auto bg-black/40">
-            <div class="text-green-400 text-xs">Windows 13 Kernel v1.0.0.4</div>
-            <div class="mb-2 text-xs">Type 'help' for commands.</div>
-            <div id="term-history"></div>
-            <div class="flex">
-                <span class="text-blue-400">PS C:\Users\Admin> &nbsp;</span>
-                <input id="term-input" class="bg-transparent outline-none flex-1 border-none" autofocus>
-            </div>
-        </div>
-    </div>
-
-    <!-- WINDOW: NOTEPAD -->
-    <div id="win-notepad" class="window glass w-[400px] h-[400px] top-20 right-20">
-        <div class="p-3 bg-white/10 flex justify-between items-center">
-            <span class="text-xs font-bold">Notepad</span>
-            <button onclick="closeApp('notepad')" class="hover:bg-red-500 px-2 rounded">✕</button>
-        </div>
-        <textarea class="w-full h-full p-4 bg-white/5 text-white outline-none resize-none" placeholder="Start typing..."></textarea>
-    </div>
-
-    <!-- TASKBAR -->
-    <div class="fixed bottom-0 w-full h-12 glass border-t border-white/10 flex items-center justify-between px-4 z-[1000]">
-        <div id="clock" class="text-xs font-medium w-32">12:00 PM</div>
-        <div class="flex items-center gap-2">
-            <button onclick="toggleStart()" class="p-2 hover:bg-white/10 rounded-lg transition duration-200">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Windows_logo_-_2021.svg" class="w-6 h-6">
-            </button>
-        </div>
-        <div class="w-32 flex justify-end gap-3 items-center">
-             <i data-lucide="wifi" class="w-4 h-4 opacity-70"></i>
-             <i data-lucide="battery-medium" class="w-4 h-4 opacity-70"></i>
-        </div>
-    </div>
-
-    <script>
-        lucide.createIcons();
-
-        // App Management
-        function openApp(id) {
-            document.getElementById(`win-${id}`).classList.add('active');
-        }
-        function closeApp(id) {
-            document.getElementById(`win-${id}`).classList.remove('active');
-        }
-
-        // Calculator Logic
-        let display = document.getElementById('calc-display');
-        function calcInput(v) { if(display.value === '0') display.value = v; else display.value += v; }
-        function calcClear() { display.value = '0'; }
-        function calcResult() { try { display.value = eval(display.value); } catch { display.value = "Error"; } }
-
-        // Terminal Logic
-        const termInput = document.getElementById('term-input');
-        const termHistory = document.getElementById('term-history');
-        termInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                const cmd = termInput.value.toLowerCase();
-                const line = document.createElement('div');
-                line.innerHTML = `<span class="text-blue-400">PS></span> ${cmd}`;
-                termHistory.appendChild(line);
-                
-                const response = document.createElement('div');
-                response.className = "text-gray-400 mb-2";
-                if(cmd === 'help') response.innerText = "Available: help, clear, date, whoami, exit";
-                else if(cmd === 'date') response.innerText = new Date().toString();
-                else if(cmd === 'whoami') response.innerText = "Administrator_Win13";
-                else if(cmd === 'clear') { termHistory.innerHTML = ""; response.innerText = ""; }
-                else response.innerText = `'${cmd}' is not recognized as an internal command.`;
-                
-                termHistory.appendChild(response);
-                termInput.value = "";
-                document.getElementById('term-body').scrollTop = 1000;
-            }
-        });
-
-        // Clock
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('clock').innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-    </script>
 </body>
-                                                                                 </html>
-  
+</html>
